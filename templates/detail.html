@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Short URL{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <h1>Detail URL</h1>
+
+    <form method="post" action="/detail">
+        <label>Input URL</label>
+        <input type="text" id="short_url" name="short_url" />
+        <input type="submit">
+    </form>
+
+    {% if detail_url %}
+        <h3>Short URL: {{ short_url }}</h3>
+        <h3>Original URL: {{ detail_url['url'] }}</h3>
+        <h3>Visited: {{ detail_url['visited'] }}</h3>
+        <h3>Created At: {{ detail_url['created_at'] }}</h3>
+        <h3>Updated At: {{ detail_url['updated_at'] }}</h3>
+    {% endif %}
+
+{% endblock %}
+

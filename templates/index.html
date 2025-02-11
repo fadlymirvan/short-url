@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Short URL{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <h1>Landing Index Page</h1>
+
+    <form method="post" action="/submit">
+        <label>Input URL</label>
+        <input type="text" id="url" name="url" />
+        <input type="submit">
+    </form>
+
+    {% if short_url %}
+        <a href="{{ short_url }}" target="_blank">http://127.0.0.1/{{ short_url }}</a>
+    {% endif %}
+
+{% endblock %}
+
